@@ -1,0 +1,14 @@
+<h1>User Show Page</h1>
+
+<form action="/secrets" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+    <input type="text" name="Content">
+    <input type="button" value="Create Secret">
+</form>
+
+
+<% @secrets.each do |secret| %>
+    <% if current_user == secret.user %>
+        <p><%= secret.content %></p>
+    <% end %>
+<% end %>
